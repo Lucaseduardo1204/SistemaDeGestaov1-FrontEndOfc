@@ -1,0 +1,46 @@
+/* 1. LAYOUT DO CONTEÚDO PRINCIPAL ============================ */
+.mainContentGrid {
+  display: grid;
+  gap: var(--spacing-md);
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "search"
+    "button"
+    "totalUsers"
+    "admins"
+    "activeUsers"
+    "tabela";
+}
+
+/* Atribui os IDs dos elementos HTML às áreas do grid */
+.searchBar { grid-area: search; }
+.actionButton { grid-area: button; }
+.cardTotalUsers { grid-area: totalUsers; }
+.cardAdmins { grid-area: admins; }
+.cardActiveUsers { grid-area: activeUsers; }
+.tableContainer { grid-area: tabela; }
+
+
+/* 2. RESPONSIVIDADE ======================================== */
+/* Para tablets */
+@media (min-width: 768px) {
+  .mainContentGrid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "search button"
+      "totalUsers admins"
+      "activeUsers activeUsers"
+      "tabela tabela";
+  }
+}
+
+/* Para desktops */
+@media (min-width: 1200px) {
+  .mainContentGrid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "search search button"
+      "totalUsers admins activeUsers"
+      "tabela tabela tabela";
+  }
+}

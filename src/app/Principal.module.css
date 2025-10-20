@@ -1,0 +1,64 @@
+/* 1. LAYOUT DO CONTEÚDO PRINCIPAL ============================ */
+.mainContentGrid {
+  display: grid;
+  gap: var(--spacing-md);
+  grid-template-columns: 1fr;
+  /* Layout para telas pequenas (mobile-first) */
+  grid-template-areas:
+    "search"
+    "button"
+    "fluxo"
+    "aprovados"
+    "pendentes"
+    "instalacao"
+    "tabela";
+}
+
+/* Atribui as classes (antigos IDs) às áreas do grid */
+.searchBar { grid-area: search; }
+.actionButton { grid-area: button; }
+.cardFluxoMes { grid-area: fluxo; }
+.cardAprovados { grid-area: aprovados; }
+.cardPendentes { grid-area: pendentes; }
+.cardInstalacao { grid-area: instalacao; }
+.tableContainer { grid-area: tabela; }
+
+
+/* 2. ESTILOS ESPECÍFICOS DA PÁGINA ========================= */
+/* Estilos para o .card__item que estava no seu index.html
+  e não estava em nenhum CSS.
+  Vamos garantir que ele funcione.
+*/
+.cardItem {
+  /* Isso é opcional, mas ajuda a organizar o card duplo */
+  text-align: center;
+}
+.cardItem span {
+  /* Estilo para o "Julho" */
+  font-weight: normal;
+  color: var(--color-neutral);
+}
+
+/* 3. RESPONSIVIDADE ======================================== */
+/* Para tablets */
+@media (min-width: 768px) {
+  .mainContentGrid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "search button"
+      "fluxo aprovados"
+      "pendentes instalacao"
+      "tabela tabela";
+  }
+}
+
+/* Para desktops */
+@media (min-width: 1200px) {
+  .mainContentGrid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "search search search button"
+      "fluxo aprovados pendentes instalacao"
+      "tabela tabela tabela tabela";
+  }
+}

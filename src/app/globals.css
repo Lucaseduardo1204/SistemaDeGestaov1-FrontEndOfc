@@ -1,0 +1,256 @@
+/* 1. VARIÁVEIS E RESET GLOBAL ================================== */
+:root {
+  /* Cores */
+  --color-primary: #00D60C;
+  --color-primary-dark: #00A308;
+  --color-secondary: #4CAF50;
+  --color-secondary-dark: #43a047;
+  --color-text: #333;
+  --color-text-light: #f2f2f2;
+  --color-text-muted: #c0c0c0;
+  --color-positive: #2f7a3e;
+  --color-negative: #c0392b;
+  --color-warning: #856404;
+  --color-neutral: #666;
+  --color-info: #3048fd;
+  --bg-dark: #212121;
+  --bg-dark-accent: #434343;
+  --bg-light: #f2f2f2;
+  --bg-light-accent: #ebebeb;
+  --bg-white: #fff;
+  --bg-positive-light: #d4edda;
+  --bg-negative-light: #f5b7b1;
+  --bg-warning-light: #fff3cd;
+  --bg-info-light: #d6dbfc;
+
+  /* Fontes */
+  --font-family-base: 'Segoe UI', 'Helvetica Neue', 'Arial', sans-serif;
+  --font-weight-normal: 400;
+  --font-weight-bold: 600;
+
+  /* Espaçamento e Bordas */
+  --spacing-md: 15px;
+  --spacing-lg: 25px;
+  --border-radius-sm: 8px;
+  --border-radius-lg: 1.5rem;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-family-base); background-color: var(--bg-light); color: var(--color-text); }
+
+/* 2. LAYOUT PRINCIPAL ========================================= */
+.page-grid { display: grid; grid-template-columns: 250px 1fr; grid-template-rows: 80px auto; grid-template-areas: "header header" "sidebar main"; min-height: 100vh; }
+.header { grid-area: header; background-color: var(--bg-dark); display: flex; align-items: center; justify-content: center; padding: 0 20px; }
+.header__logo { height: 50%; max-width: 150px; }
+.sidebar { grid-area: sidebar; background-color: var(--bg-dark-accent); color: var(--color-text-light); padding: var(--spacing-lg); display: flex; flex-direction: column; }
+.main-content { grid-area: main; background-color: var(--bg-light-accent); border-radius: var(--border-radius-lg); margin: var(--spacing-md); padding: var(--spacing-lg); }
+
+/* 3. COMPONENTES COMPARTILHADOS =============================== */
+/* Menu Lateral */
+.sidebar__menu ul { padding: 0; list-style: none; }
+.sidebar__menu h6 { font-size: 1.2em; margin-bottom: var(--spacing-md); }
+.sidebar__menu li a { display: block; text-decoration: none; margin-top: 5px; font-size: 0.9em; color: var(--color-text-muted); transition: all 0.2s ease; }
+.sidebar__menu li a:hover { color: var(--color-text-light); text-decoration: underline; }
+.sidebar__link--active { font-weight: var(--font-weight-bold); color: var(--color-text-light) !important; }
+.sidebar__logout { margin-top: auto; }
+.sidebar__logout a { color: var(--color-text-muted); text-decoration: none; font-size: 0.9em; }
+
+/* Cards */
+.card { background-color: var(--bg-white); padding: var(--spacing-md); border-radius: var(--border-radius-sm); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.card--double { justify-content: space-around; gap: 1rem; }
+.card__title { font-size: 0.9em; color: var(--color-neutral); font-weight: var(--font-weight-normal); margin-bottom: 0.5rem; }
+.card__value { font-size: 2em; font-weight: var(--font-weight-bold); }
+.card__sub-value { font-size: 1.2em; color: var(--color-neutral); margin-top: -0.25rem; }
+.card__value--positive { color: var(--color-positive); }
+.card__value--negative { color: var(--color-negative); }
+.card__value--warning { color: var(--color-warning); }
+.card__value--default { color: var(--color-text); }
+.card__list { list-style: none; padding: 0; width: 100%; }
+.card__value--info { 
+  color: var(--color-info); 
+}
+
+/* Barra de Pesquisa e Botão de Ação */
+.search-bar { background-color: var(--bg-white); padding: 5px; border-radius: var(--border-radius-lg); box-shadow: var(--shadow-sm); display: flex; align-items: center; }
+.search-bar input { text-align: center; width: 100%; height: 100%; border: none; outline: none; background: transparent; font-size: 1em; }
+.search-bar button, .action-button button { height: 100%; padding: 10px 20px; border: none; border-radius: var(--border-radius-lg); color: var(--color-text-light); font-weight: var(--font-weight-bold); cursor: pointer; transition: all 0.3s ease; box-shadow: var(--shadow-sm); white-space: nowrap; }
+.search-bar button { background-color: var(--color-secondary); margin-left: 10px; }
+.action-button button { width: 100%; background-color: var(--color-primary); font-size: 1em; }
+.search-bar button:hover { background-color: var(--color-secondary-dark); }
+.action-button button:hover { background-color: var(--color-primary-dark); }
+
+/* Tabela */
+.table-container { background-color: var(--bg-white); padding: var(--spacing-md); border-radius: var(--border-radius-sm); box-shadow: var(--shadow-sm); overflow-x: auto; }
+.table-container table { width: 100%; border-collapse: collapse; }
+.table-container th, .table-container td { padding: 12px; text-align: left; font-size: 0.9em; border-bottom: 1px solid var(--bg-light); }
+.table-container th { background-color: var(--bg-light); font-weight: var(--font-weight-bold); }
+.table-container tr:hover { background-color: #f9f9f9; }
+
+/* Status Comuns */
+.status { font-weight: var(--font-weight-bold); padding: 5px 10px; border-radius: 5px; font-size: 0.8em; }
+.status--aprovado, .status--disponivel { background-color: var(--bg-positive-light); color: var(--color-positive); }
+.status--pendente { background-color: var(--bg-warning-light); color: var(--color-warning); }
+.status--indisponivel { background-color: var(--bg-negative-light); color: var(--color-negative); }
+.status--finalizado { background-color: var(--bg-info-light); color: var(--color-info); }
+.status--em-producao { 
+  background-color: var(--bg-info-light); 
+  color: var(--color-info); 
+}
+.status--ativo {
+  background-color: var(--bg-positive-light);
+  color: var(--color-positive);
+}
+.status--inativo {
+  background-color: #e9ecef; /* Um cinza claro */
+  color: #495057;      /* Um cinza escuro */
+}
+
+/* Footer */
+.footer { color: #b0afaf; margin-top: 20px; text-align: center; font-size: 0.8em; }
+
+/* 4. COMPONENTES DE TABELA ================================= */
+
+.table-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.table-user__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--bg-info-light);
+  color: var(--color-info);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--font-weight-bold);
+  font-size: 0.9em;
+  text-transform: uppercase;
+}
+
+/* Container para os botões de ação na célula da tabela */
+.table-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centraliza os botões na célula */
+  gap: 10px; /* Espaço entre os botões */
+}
+
+/* Estilo base para cada botão de ação */
+.table-actions__button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%; /* Deixa o fundo redondo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+/* Estilo para os ícones SVG dentro dos botões */
+.table-actions__button svg {
+  width: 18px;
+  height: 18px;
+  /* Ícone herda a cor do texto do botão (cinza por padrão) */
+  fill: var(--color-neutral); 
+  transition: fill 0.2s ease;
+}
+
+/* Efeito ao passar o mouse (estilo original) */
+.table-actions__button:hover {
+  background-color: #f0f0f0; /* Fundo cinza claro */
+}
+
+/* Cores específicas para cada ação no hover */
+.table-actions__button--edit:hover svg {
+  fill: #007bff; /* Azul para editar */
+}
+
+.table-actions__button--delete:hover svg {
+  fill: var(--color-negative); /* Vermelho para excluir */
+}
+
+/* Acessibilidade */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
+
+/* Adicione isso no final do seu 'src/app/globals.css' */
+
+.table-actions__button--view:hover svg {
+  fill: var(--color-info); /* Azul para visualizar */
+}
+.text-center {
+  text-align: center;
+}
+.table-container th.text-center {
+  text-align: center;
+}
+
+/* --- ESTILOS DO NOVO HEADER E DROPDOWN --- */
+
+/* 1. Sobrescreve a regra original do seu .header */
+.header {
+  justify-content: space-between; /* Joga o logo para a esquerda e o menu para a direita */
+  padding: 0 var(--spacing-lg); /* Adiciona padding lateral */
+}
+
+/* 2. Container do menu de usuário */
+.header__user-menu {
+  position: relative; /* Necessário para o dropdown flutuar */
+  display: flex;
+  align-items: center;
+}
+
+/* 3. Botão do ícone de usuário */
+.header__user-button {
+  background-color: var(--bg-dark-accent); /* <-- MUDANÇA AQUI */
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.header__user-button:hover {
+  filter: brightness(1.15); /* Fica um pouco mais claro no hover */
+}
+
+/* 4. O menu dropdown que aparece */
+.user-dropdown {
+  position: absolute;
+  top: calc(100% + 10px); /* Posição abaixo do ícone */
+  right: 0;
+  background-color: var(--bg-white); /* Cor do seu CSS */
+  border-radius: var(--border-radius-sm); /* Borda do seu CSS */
+  box-shadow: var(--shadow-sm); /* Sombra do seu CSS */
+  padding: 10px 0;
+  width: 180px; /* Largura do menu */
+  z-index: 100;
+  overflow: hidden;
+}
+
+.user-dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.user-dropdown li a {
+  display: block;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: var(--color-text); /* Cor do seu CSS */
+  font-size: 0.9em;
+  transition: background-color 0.2s ease;
+}
+
+.user-dropdown li a:hover {
+  background-color: var(--bg-light); /* Cor do seu CSS */
+}
