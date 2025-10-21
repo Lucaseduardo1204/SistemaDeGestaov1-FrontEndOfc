@@ -1,18 +1,19 @@
-// Define os status possíveis baseados no seu HTML e base.css
-export type OrcamentoStatus = 'Aprovado' | 'Pendente' | 'Finalizado' | 'Em Produção';
+// Status possíveis (ATUALIZADO CONFORME O DOCUMENTO DE REGRAS)
+export type OrcamentoStatus = 'PENDENTE' | 'APROVADO' | 'FINALIZADO' | 'CANCELADO';
 
-// Define a estrutura de um item da tabela
+// Define a estrutura de um item da tabela (ATUALIZADO)
 export type Orcamento = {
-  id: string; // Ex: "#1023"
+  id: string;
   status: OrcamentoStatus;
-  nomeCliente: string;
+  clienteNome: string;
+  clienteTelefone: string;
   endereco: string;
-  telefone: string;
-  previsao: string; // Ex: "16/07/2025 - 14:00"
-  pagamento: string; // Ex: "50%"
+  previsaoData: string;
+  pagamentoStatus: string;
+  valorTotal: number;
 };
 
-// Define a estrutura dos dados dos cards
+// Define a estrutura dos dados dos cards PARA A PÁGINA PRINCIPAL (/ - Módulo 6)
 export type DashboardStats = {
   fluxoMes: {
     mes: string;
@@ -22,7 +23,15 @@ export type DashboardStats = {
   aprovados: number;
   pendentes: number;
   proximaInstalacao: {
-    data: string; // Ex: "20/08"
-    hora: string; // Ex: "13:00"
+    data: string;
+    hora: string;
   };
+};
+
+// NOVO TIPO: Define a estrutura dos cards PARA A PÁGINA DE ORÇAMENTOS (/orcamentos)
+export type StatsOrcamentos = {
+  totalPendentes: number;
+  totalAprovados: number;
+  totalFinalizados: number;
+  totalCancelados: number;
 };

@@ -254,3 +254,41 @@ body { font-family: var(--font-family-base); background-color: var(--bg-light); 
 .user-dropdown li a:hover {
   background-color: var(--bg-light); /* Cor do seu CSS */
 }
+
+.sidebar__logout-button {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: 0.9em;
+  cursor: pointer;
+  font-family: var(--font-family-base);
+}
+.sidebar__logout-button:hover {
+  color: var(--color-text-light);
+  text-decoration: underline;
+}
+
+/* ... (todo o seu CSS existente) ... */
+
+/* NOVOS STATUS PARA TELA DE CAIXA */
+.status--entrada {
+  background-color: var(--bg-positive-light);
+  color: var(--color-positive);
+}
+
+.status--saida {
+  background-color: var(--bg-negative-light);
+  color: var(--color-negative);
+}
+
+/* ... (seu CSS existente) ... */
+
+/* Estilo para o botão de Baixar PDF */
+.pdf-button {
+  background-color: var(--color-negative) !important; /* Vermelho */
+}
+.pdf-button:hover {
+  background-color: #a03023 !important; /* Vermelho mais escuro */
+}

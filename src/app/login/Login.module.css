@@ -1,0 +1,71 @@
+/* Layout de tela cheia com 2 colunas */
+.loginPage {
+  display: grid;
+  grid-template-columns: 1fr; /* Uma coluna em mobile */
+  min-height: 100vh;
+  background-color: var(--bg-light);
+}
+
+/* 1. Painel da Esquerda (Branding) */
+.brandingPanel {
+  display: none; /* Escondido em mobile */
+  background-color: rgb(36, 36, 36); /* Cor da sua sidebar */
+  padding: var(--spacing-lg);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.brandingLogo {
+  width: 80%;
+  max-width: 300px;
+  margin-bottom: var(--spacing-md);
+}
+
+.brandingText {
+  color: var(--color-text-light);
+  font-size: 1.2rem;
+  font-weight: var(--font-weight-normal);
+}
+
+/* 2. Painel da Direita (Formulário) */
+.formPanel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-md);
+}
+
+.formContainer {
+  width: 100%;
+  max-width: 400px;
+  background-color: var(--bg-white);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-sm); /* Sombra do seu base.css */
+}
+
+.formTitle {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* 3. Responsividade (Ativa o split screen) */
+@media (min-width: 768px) {
+  .loginPage {
+    grid-template-columns: 1fr 1.5fr; /* 2 colunas */
+  }
+  .brandingPanel {
+    display: flex; /* Mostra o painel esquerdo */
+  }
+}
+
+@media (min-width: 1200px) {
+  .loginPage {
+    grid-template-columns: 1fr 2fr;
+  }
+}

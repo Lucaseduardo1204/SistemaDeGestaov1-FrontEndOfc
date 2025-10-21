@@ -1,0 +1,50 @@
+/* /TelaCaixa/TelaCaixa.css convertido para Module */
+
+/* 1. LAYOUT DO CONTEÚDO PRINCIPAL ============================ */
+.mainContentGrid {
+  display: grid;
+  gap: var(--spacing-md);
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "search"
+    "button"
+    "fluxo"
+    "entradas"
+    "saidas"
+    "gastos"
+    "tabela";
+}
+
+/* Atribui os cards às áreas do grid */
+.searchBar { grid-area: search; }
+.actionButton { grid-area: button; }
+.cardFluxo { grid-area: fluxo; }
+.cardEntradas { grid-area: entradas; }
+.cardSaidas { grid-area: saidas; }
+.cardGastos { grid-area: gastos; }
+.tableContainer { grid-area: tabela; }
+
+
+/* 2. RESPONSIVIDADE ======================================== */
+/* Para tablets */
+@media (min-width: 768px) {
+  .mainContentGrid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "search button"
+      "fluxo entradas"
+      "saidas gastos"
+      "tabela tabela";
+  }
+}
+
+/* Para desktops */
+@media (min-width: 1200px) {
+  .mainContentGrid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "search search search button"
+      "fluxo entradas saidas gastos"
+      "tabela tabela tabela tabela";
+  }
+}

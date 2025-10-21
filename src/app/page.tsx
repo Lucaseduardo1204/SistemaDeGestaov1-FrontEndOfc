@@ -1,10 +1,12 @@
 import { Card } from '@/components/Card';
 import styles from './Principal.module.css';
-import { getDashboardStats, getOrcamentos, formatBRL } from '@/lib/data';
+// 1. CORREÇÃO: Importa a função 'getRecentOrcamentos'
+import { getDashboardStats, getRecentOrcamentos, formatBRL } from '@/lib/data';
 import { getStatusClass } from '@/lib/utils';
 import { Suspense } from 'react';
+import { auth } from '@/auth'; // 1. IMPORTAR A FUNÇÃO 'auth'
 
-// --- ÍCONES COMO COMPONENTES REACT ---
+// --- ÍCONES (COMPLETOS) ---
 const EditIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
 );
@@ -21,10 +23,13 @@ const ViewIcon = () => (
 // --- COMPONENTE DA PÁGINA PRINCIPAL ---
 export default async function HomePage() {
   
-  // Busca os dados no servidor antes de renderizar a página
+  const session = await auth();
+  const userPermission = session?.user?.permissao;
+  const canViewCaixaCard = userPermission === 'ADMIN' || userPermission === 'FINANCEIRO';
+
   const [stats, orcamentos] = await Promise.all([
     getDashboardStats(),
-    getOrcamentos(),
+    getRecentOrcamentos(), // 2. CORREÇÃO: Chama a função correta
   ]);
 
   return (
@@ -48,21 +53,23 @@ export default async function HomePage() {
         </div>
       </div>
 
-      {/* --- CARD DUPLO (FLUXO MÊS) --- */}
-      <div className={`${styles.cardFluxoMes} card card--double`}>
-        <div className={styles.cardItem}>
-          <h2 className="card__title">Entrada mês <span>{stats.fluxoMes.mes}</span></h2>
-          <p className="card__value card__value--positive">
-            {formatBRL(stats.fluxoMes.entrada)}
-          </p>
+      {/* 4. RENDERIZAÇÃO CONDICIONAL */}
+      {canViewCaixaCard && (
+        <div className={`${styles.cardFluxoMes} card card--double`}>
+          <div className={styles.cardItem}>
+            <h2 className="card__title">Entrada mês <span>{stats.fluxoMes.mes}</span></h2>
+            <p className="card__value card__value--positive">
+              {formatBRL(stats.fluxoMes.entrada)}
+            </p>
+          </div>
+          <div className={styles.cardItem}>
+            <h2 className="card__title">Saída mês <span>{stats.fluxoMes.mes}</span></h2>
+            <p className="card__value card__value--negative">
+              {formatBRL(stats.fluxoMes.saida)}
+            </p>
+          </div>
         </div>
-        <div className={styles.cardItem}>
-          <h2 className="card__title">Saída mês <span>{stats.fluxoMes.mes}</span></h2>
-          <p className="card__value card__value--negative">
-            {formatBRL(stats.fluxoMes.saida)}
-          </p>
-        </div>
-      </div>
+      )}
 
       {/* --- CARDS SIMPLES --- */}
       <Card
@@ -110,11 +117,12 @@ export default async function HomePage() {
                     </span>
                   </td>
                   <td>{item.id}</td>
-                  <td>{item.nomeCliente}</td>
+                  {/* 3. CORREÇÃO: Nomes dos campos atualizados */}
+                  <td>{item.clienteNome}</td>
                   <td>{item.endereco}</td>
-                  <td>{item.telefone}</td>
-                  <td>{item.previsao}</td>
-                  <td>{item.pagamento}</td>
+                  <td>{item.clienteTelefone}</td>
+                  <td>{item.previsaoData}</td>
+                  <td>{item.pagamentoStatus}</td>
                   <td>
                     <div className="table-actions">
                       <button className="table-actions__button table-actions__button--view" title="Visualizar item">

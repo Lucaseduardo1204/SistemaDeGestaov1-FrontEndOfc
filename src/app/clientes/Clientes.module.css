@@ -1,0 +1,58 @@
+/* src/app/clientes/Clientes.module.css */
+
+.mainContentGrid {
+  display: grid;
+  gap: var(--spacing-md);
+  /* Layout Base (Mobile) */
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "search"
+    "button"
+    "total"
+    "ativos"
+    "inativos"
+    "tabela";
+  align-items: center; /* ADICIONADO AQUI */
+  min-height: 0; 
+}
+
+/* Áreas do Grid */
+.searchBar { grid-area: search; }
+.actionButton { grid-area: button; }
+.cardTotal { grid-area: total; }
+.cardAtivos { grid-area: ativos; }
+.cardInativos { grid-area: inativos; }
+.tableContainer { grid-area: tabela; }
+
+/* Cores específicas dos cards */
+.cardAtivos .card__value { color: var(--color-positive); }
+.cardInativos .card__value { color: var(--color-negative); }
+
+
+/* RESPONSIVIDADE */
+@media (min-width: 768px) {
+  .mainContentGrid {
+    /* Layout Tablet */
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "search button"
+      "total ativos"
+      "inativos inativos"
+      "tabela tabela";
+    align-items: center; /* MANTIDO AQUI */
+    min-height: 0; 
+  }
+}
+
+@media (min-width: 1200px) {
+  .mainContentGrid {
+    /* Layout Desktop */
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "search search button"
+      "total ativos inativos"
+      "tabela tabela tabela";
+    align-items: center; /* MANTIDO AQUI */
+    min-height: 0; 
+  }
+}

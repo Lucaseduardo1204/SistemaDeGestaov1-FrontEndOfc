@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="2453px" height="526px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 437.96 93.93"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <font id="FontID1" horiz-adv-x="817" font-variant="normal" style="fill-rule:nonzero" font-weight="600">
+	<font-face 
+		font-family="Ruberoid Semi Bold">
+		<font-face-src>
+			<font-face-name name="Ruberoid-SemiBold"/>
+		</font-face-src>
+	</font-face>
+   <missing-glyph><path d="M0 0z"/></missing-glyph>
+   <glyph unicode="A" horiz-adv-x="817" d="M148.995 0l64.0018 139.999 392.993 0 63.0047 -139.999 128.993 0 -319.994 699.987 -137.997 0 -318.997 -699.987 127.996 0zm404.995 252.994l-289.991 0 144.992 320.002 144.999 -320.002z"/>
+   <glyph unicode="E" horiz-adv-x="712" d="M655.995 113.999l-457.999 0 0 182.994 407.994 0 0 106 -407.994 0 0 183.002 457.999 0 0 113.992 -578.993 0 0 -699.987 578.993 0 0 113.999z"/>
+   <glyph unicode="I" horiz-adv-x="273" d="M197.996 0l0 699.987 -120.994 0 0 -699.987 120.994 0z"/>
+   <glyph unicode="M" horiz-adv-x="1017" d="M197.996 0l0 579.99 243 -579.99 137 0 242.993 579.99 0 -579.99 119.997 0 0 699.987 -196.999 0 -234.993 -565.986 -235.998 565.986 -195.994 0 0 -699.987 120.994 0z"/>
+   <glyph unicode="S" horiz-adv-x="707" d="M41.9982 204.998c23.9979,-150.997 119,-213.994 318,-213.994 207.997,0 305.99,67.9978 305.99,208.994 0,60.9956 -21.9962,106 -64.999,135.996 -42.9953,30.0029 -122.996,55.0054 -237.992,76.0045 -72.0011,12.9998 -121.999,25.9996 -150,40.9937 -28.0013,14.0043 -41.9982,33.9989 -41.9982,59.0013 0,54.998 54.998,82.0021 165.999,82.0021 114.996,0 172.993,-31.0001 189.996,-100.002l125.995 0c-22.9934,152.002 -115.994,214.002 -307.992,214.002 -199,0 -292.998,-67.0006 -292.998,-203.004 0,-58.994 20.9991,-103.998 62.9973,-133.994 41.0011,-30.0029 116.998,-54.0009 227.002,-72.9983 151.994,-25.0024 205.995,-51.9992 205.995,-106.997 0,-56.9997 -59.0013,-86.0055 -175.999,-86.0055 -122.996,0 -184.996,31.0001 -204.998,100.002l-124.997 0z"/>
+   <glyph unicode="T" horiz-adv-x="743" d="M715.993 699.987l-687.992 0 0 -113.992 283.994 0 0 -585.995 119.997 0 0 585.995 284.001 0 0 113.992z"/>
+  </font>
+  <font id="FontID0" horiz-adv-x="824" font-variant="normal" style="fill-rule:nonzero" font-weight="700">
+	<font-face 
+		font-family="Ruberoid Bold">
+		<font-face-src>
+			<font-face-name name="Ruberoid-Bold"/>
+		</font-face-src>
+	</font-face>
+   <missing-glyph><path d="M0 0z"/></missing-glyph>
+   <glyph unicode="A" horiz-adv-x="824" d="M224.017 128.01l376.024 0 57.0053 -128.01 149.008 0 -315.022 700.049 -158.008 0 -315.025 -700.049 149.012 0 57.0053 128.01zm317.022 132.007l-258.02 0 129.008 292.023 129.012 -292.023z"/>
+   <glyph unicode="K" horiz-adv-x="748" d="M209.016 0l0 293.021 109.008 0 238.016 -293.021 175.01 0 -297.018 360.025 274.019 340.025 -171.012 0 -220.016 -275.021 -108.006 0 0 275.021 -141.01 0 0 -700.049 141.01 0z"/>
+   <glyph unicode="N" horiz-adv-x="828" d="M68.0056 0l141.01 0 0 494.036 410.027 -494.036 140.008 0 0 700.049 -140.008 0 0 -494.036 -410.027 494.036 -141.01 0 0 -700.049z"/>
+   <glyph unicode="R" horiz-adv-x="751" d="M209.016 243.015l225.015 0c75.0052,0 107.008,-24.0009 107.008,-80.0043l0 -163.011 140.008 0 0 169.012c0,69.004 -25.0029,117.009 -76.0036,142.009 56.0034,33.0044 84.0051,93.0085 84.0051,180.012 0,147.012 -74.0068,209.016 -246.018,209.016l-375.026 0 0 -700.049 141.01 0 0 243.015zm0 325.024l225.015 0c81.0063,0 115.006,-28.0017 115.006,-96.0073 0,-68.0021 -33.9992,-98.0041 -115.006,-98.0041l-225.015 0 0 194.011z"/>
+   <glyph unicode="T" horiz-adv-x="737" d="M298.02 568.039l0 -568.039 141.01 0 0 568.039 272.019 0 0 132.011 -685.048 0 0 -132.011 272.019 0z"/>
+   <glyph unicode="Y" horiz-adv-x="794" d="M327.024 269.02l0 -269.02 140.008 0 0 269.02 309.021 431.029 -167.012 0 -212.015 -301.023 -212.015 301.023 -167.012 0 309.024 -431.029z"/>
+  </font>
+  <style type="text/css">
+   <![CDATA[
+    @font-face { font-family:"Ruberoid Semi Bold";font-variant:normal;font-weight:600;src:url("#FontID1") format(svg)}
+    @font-face { font-family:"Ruberoid Bold";font-variant:normal;font-weight:bold;src:url("#FontID0") format(svg)}
+    .fil0 {fill:white}
+    .fnt1 {font-weight:600;font-size:28.55px;font-family:'Ruberoid Semi Bold'}
+    .fnt0 {font-weight:bold;font-size:59.14px;font-family:'Ruberoid Bold'}
+   ]]>
+  </style>
+ </defs>
+ <g id="Camada_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <path class="fil0" d="M0.03 28.68l0.37 -28.55 27.81 0 -28.18 28.55zm41.5 16.66c15.27,16.33 37.14,45.13 47.49,48.59l-38.97 -0.42c3.87,-2.43 3.39,-4.75 0.52,-7.86l-23.19 -26.13 -10.29 10.31c-12.92,12.74 -15.55,19.86 -17.06,24.1 -0.01,-11.33 -0.02,-22.67 -0.03,-34.01l54.4 -55.29c1.62,-1.6 -0.88,-4.27 -1.14,-4.63l33.07 0.48 -44.8 44.86z"/>
+  <g id="_2559237596192">
+   <text x="162.11" y="52.28"  class="fil0 fnt0">KYNTRA</text>
+   <text x="166.22" y="87.64"  class="fil0 fnt1">SISTEMAS</text>
+  </g>
+ </g>
+</svg>

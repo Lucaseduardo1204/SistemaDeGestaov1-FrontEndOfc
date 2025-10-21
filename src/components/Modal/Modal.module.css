@@ -1,0 +1,88 @@
+/* O fundo escuro que cobre a tela */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Garante que fique acima de tudo */
+  animation: fadeIn 0.3s ease;
+}
+
+/* O container branco do modal */
+.modal {
+  background-color: var(--bg-white);
+  border-radius: var(--border-radius-sm); /* Borda do base.css */
+  box-shadow: var(--shadow-sm); /* Sombra do base.css */
+  width: 90%;
+  max-width: 600px; /* Largura padrão */
+  max-height: 90vh; /* Altura máxima */
+  display: flex;
+  flex-direction: column;
+  animation: slideIn 0.3s ease;
+  overflow: hidden; /* Para o header/footer não vazarem */
+}
+
+/* Cabeçalho do modal */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-bottom: 1px solid var(--bg-light-accent); /* Linha do base.css */
+}
+
+.title {
+  font-size: 1.3rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text); /* Cor do base.css */
+}
+
+.closeButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+.closeButton:hover {
+  background-color: var(--bg-light-accent);
+}
+.closeButton svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--color-neutral); /* Cor do base.css */
+}
+
+/* Corpo (onde o formulário vai entrar) */
+.content {
+  padding: var(--spacing-lg);
+  overflow-y: auto; /* Adiciona scroll se o conteúdo for grande */
+}
+
+/* Rodapé (para os botões Salvar/Cancelar) */
+.footer {
+  display: flex;
+  justify-content: flex-end; /* Alinha botões à direita */
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-top: 1px solid var(--bg-light-accent);
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideIn {
+  from { transform: translateY(-30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

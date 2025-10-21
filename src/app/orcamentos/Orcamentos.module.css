@@ -1,0 +1,56 @@
+/* Este CSS é uma cópia do TelaPrincipal.css */
+
+/* 1. LAYOUT DO CONTEÚDO PRINCIPAL ============================ */
+.mainContentGrid {
+  display: grid;
+  gap: var(--spacing-md);
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "search"
+    "button"
+    "pendentes"
+    "aprovados"
+    "finalizados"
+    "cancelados"
+    "tabela";
+}
+
+/* Atribui os cards às áreas do grid */
+.searchBar { grid-area: search; }
+.actionButton { grid-area: button; }
+.cardPendentes { grid-area: pendentes; }
+.cardAprovados { grid-area: aprovados; }
+.cardFinalizados { grid-area: finalizados; }
+.cardCancelados { grid-area: cancelados; }
+.tableContainer { grid-area: tabela; }
+
+/* Cores específicas dos cards */
+.cardPendentes .card__value { color: var(--color-warning); } /* Amarelo */
+.cardAprovados .card__value { color: var(--color-positive); } /* Verde */
+.cardFinalizados .card__value { color: var(--color-info); } /* Azul */
+.cardCancelados .card__value { color: var(--color-negative); } /* Vermelho */
+
+
+/* 3. RESPONSIVIDADE ======================================== */
+/* Para tablets */
+@media (min-width: 768px) {
+  .mainContentGrid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "search button"
+      "pendentes aprovados"
+      "finalizados cancelados"
+      "tabela tabela";
+  }
+}
+
+/* Para desktops */
+@media (min-width: 1200px) {
+  .mainContentGrid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "search search search button"
+      "pendentes aprovados finalizados cancelados"
+      "tabela tabela tabela tabela";
+  }
+}

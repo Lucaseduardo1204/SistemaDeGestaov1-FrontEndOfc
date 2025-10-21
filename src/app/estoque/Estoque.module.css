@@ -1,0 +1,45 @@
+.mainContentGrid {
+  display: grid;
+  gap: var(--spacing-md);
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "search search"
+    "btnNovo btnMov"
+    "cardTotal cardValor"
+    "cardBaixo cardBaixo"
+    "tabela tabela";
+}
+
+/* Áreas do Grid */
+.searchBar { grid-area: search; }
+.btnNovoItem { grid-area: btnNovo; }
+.btnMovimentacao { grid-area: btnMov; }
+.cardTotal { grid-area: cardTotal; }
+.cardValor { grid-area: cardValor; }
+.cardBaixoEstoque { grid-area: cardBaixo; }
+.tableContainer { grid-area: tabela; }
+
+/* Botão secundário de movimentação */
+.btnMovimentacao button {
+  background-color: var(--color-secondary); /* Verde secundário */
+}
+.btnMovimentacao button:hover {
+  background-color: var(--color-secondary-dark); /* Verde secundário escuro */
+}
+
+/* Card de "Baixo Estoque" (Aviso) */
+.cardBaixoEstoque .card__value {
+  color: var(--color-warning); /* Amarelo */
+}
+
+
+/* RESPONSIVIDADE */
+@media (min-width: 1200px) {
+  .mainContentGrid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "search search btnNovo btnMov"
+      "cardTotal cardValor cardBaixo cardBaixo"
+      "tabela tabela tabela tabela";
+  }
+}
